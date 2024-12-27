@@ -10,16 +10,34 @@ app = Flask(__name__)
 
 
 # load databasedataset===================================
-sym_des = pd.read_csv("datasets/symtoms_df.csv")
-precautions = pd.read_csv("datasets/precautions_df.csv")
-workout = pd.read_csv("datasets/workout_df.csv")
-description = pd.read_csv("datasets/description.csv")
-medications = pd.read_csv('datasets/medications.csv')
-diets = pd.read_csv("datasets/diets.csv")
+# sym_des = pd.read_csv("symtoms_df.csv")
+sym_des = pd.read_csv(r"C:\Users\Anushka Gupta\OneDrive\Desktop\python-ws\Medicine-Recommendation-System-Personalized-Medical-Recommendation-System-with-Machine-Learning\symtoms_df.csv")
 
+# precautions = pd.read_csv("precautions_df.csv")
+precautions = pd.read_csv(r"C:\Users\Anushka Gupta\OneDrive\Desktop\python-ws\Medicine-Recommendation-System-Personalized-Medical-Recommendation-System-with-Machine-Learning\precautions_df.csv")
 
+# workout = pd.read_csv("workout_df.csv")
+workout = pd.read_csv(r"C:\Users\Anushka Gupta\OneDrive\Desktop\python-ws\Medicine-Recommendation-System-Personalized-Medical-Recommendation-System-with-Machine-Learning\workout_df.csv")
+
+# description = pd.read_csv("description.csv")
+description = pd.read_csv(r"C:\Users\Anushka Gupta\OneDrive\Desktop\python-ws\Medicine-Recommendation-System-Personalized-Medical-Recommendation-System-with-Machine-Learning\description.csv")
+
+# medications = pd.read_csv('medications.csv')
+medications = pd.read_csv(r"C:\Users\Anushka Gupta\OneDrive\Desktop\python-ws\Medicine-Recommendation-System-Personalized-Medical-Recommendation-System-with-Machine-Learning\medications.csv")
+
+# diets = pd.read_csv("diets.csv")
+diets = pd.read_csv(r"C:\Users\Anushka Gupta\OneDrive\Desktop\python-ws\Medicine-Recommendation-System-Personalized-Medical-Recommendation-System-with-Machine-Learning\diets.csv")
+
+import pickle
+svc = pickle.load(open('svc.pkl', 'rb'))
+pickle.dump(svc,open('svc.pkl','wb'))
 # load model===========================================
-svc = pickle.load(open('models/svc.pkl','rb'))
+
+# svc = pickle.load(open(r'C:\Users\Anushka Gupta\OneDrive\Desktop\python-ws\Medicine-Recommendation-System-Personalized-Medical-Recommendation-System-with-Machine-Learning\models\svc.pkl', 'rb'))
+
+
+
+
 
 
 #============================================================
@@ -114,7 +132,7 @@ def developer():
 def blog():
     return render_template("blog.html")
 
-
+#python main
 if __name__ == '__main__':
 
     app.run(debug=True)
